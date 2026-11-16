@@ -10,45 +10,28 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="./" aria-label="QR Libre, inicio"><span class="brand-mark" aria-hidden="true">▦</span> QR<span>Libre</span><span class="brand-dot">.</span></a>
-    <span class="header-note"><span aria-hidden="true">✳</span> Simple, gratis y sin registros</span>
-  </header>
+  <main class="generator">
+    <div class="heading">
+      <span class="mark" aria-hidden="true">▦</span>
+      <h1>Generador QR</h1>
+      <p>Tu enlace, listo para compartir.</p>
+    </div>
 
-  <main>
-    <section class="intro" aria-labelledby="title">
-      <div class="eyebrow"><span></span> UNA PEQUEÑA HERRAMIENTA PARA GRANDES ENLACES</div>
-      <h1 id="title">Tu enlace,<br><em>listo para compartir.</em></h1>
-      <p>Convierte cualquier enlace en un código QR en segundos. Sin cuentas, sin complicaciones.</p>
-    </section>
+    <form id="qr-form" novalidate>
+      <label for="url">Enlace</label>
+      <input id="url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="https://ejemplo.com" aria-describedby="url-error" required>
+      <p id="url-error" class="error" role="alert"></p>
+      <button class="generate" type="submit">Generar QR <span aria-hidden="true">↗</span></button>
+    </form>
 
-    <section class="workspace" aria-label="Generador de códigos QR">
-      <div class="form-side">
-        <div class="section-kicker"><span>01</span> TU ENLACE</div>
-        <h2>Empecemos por la URL</h2>
-        <p class="section-description">Pega la dirección web que quieres compartir. Nosotros nos encargamos del resto.</p>
-        <form id="qr-form" novalidate>
-          <label for="url">Dirección web</label>
-          <div class="input-wrap"><span aria-hidden="true">↗</span><input id="url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="https://ejemplo.com" aria-describedby="url-help url-error" required></div>
-          <p id="url-help" class="help">Por ejemplo: https://tusitio.com</p>
-          <p id="url-error" class="error" role="alert"></p>
-          <button class="generate" type="submit">Crear código QR <span aria-hidden="true">↗</span></button>
-        </form>
-        <div class="privacy"><span aria-hidden="true">✳</span><p><strong>Tu enlace es tuyo.</strong><br>Se procesa en tu navegador y no se envía a ningún servidor.</p></div>
+    <div class="preview">
+      <div class="qr-frame">
+        <div id="empty-state" class="empty-state"><span aria-hidden="true">▦</span>Tu QR aparecerá aquí</div>
+        <canvas id="qr-canvas" hidden aria-label="Código QR generado"></canvas>
       </div>
-      <div class="preview-side">
-        <div class="section-kicker"><span>02</span> TU CÓDIGO</div>
-        <div class="preview-heading"><div><h2>Vista previa</h2><p>Listo para ir a donde tú vayas.</p></div><span class="preview-symbol" aria-hidden="true">✳</span></div>
-        <div class="qr-frame">
-          <div id="empty-state" class="empty-state"><div class="placeholder-qr" aria-hidden="true">▦</div><strong>Aquí aparecerá tu QR</strong><span>Introduce un enlace para empezar</span></div>
-          <canvas id="qr-canvas" hidden aria-label="Código QR generado"></canvas>
-        </div>
-        <p id="qr-status" class="status" role="status">Tu código está a un enlace de distancia.</p>
-        <button id="download" class="download" type="button" disabled>Descargar PNG <span aria-hidden="true">↓</span></button>
-      </div>
-    </section>
-    <div class="bottom-notes"><span>✦ &nbsp; GRATIS, SIEMPRE</span><span>✦ &nbsp; SIN REGISTROS</span><span>✦ &nbsp; HECHO PARA COMPARTIR</span></div>
+      <p id="qr-status" class="status" role="status"></p>
+      <button id="download" class="download" type="button" disabled>Descargar PNG <span aria-hidden="true">↓</span></button>
+    </div>
   </main>
-  <footer><span>QR Libre<span class="brand-dot">.</span></span><p>Una forma sencilla de conectar el mundo, un enlace a la vez.</p><span>HECHO PARA COMPARTIR ↗</span></footer>
 </body>
 </html>

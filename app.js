@@ -10,7 +10,7 @@ function clearResult() {
   canvas.hidden = true;
   emptyState.hidden = false;
   download.disabled = true;
-  status.textContent = 'Tu código está a un enlace de distancia.';
+  status.textContent = '';
 }
 
 input.addEventListener('input', () => {
@@ -58,7 +58,7 @@ form.addEventListener('submit', (event) => {
     emptyState.hidden = true;
     canvas.hidden = false;
     download.disabled = false;
-    status.textContent = '¡Listo! Escanea o descarga tu código QR.';
+    status.textContent = 'QR listo para compartir.';
   } catch {
     error.textContent = 'No se pudo crear el QR. Prueba con un enlace más corto.';
     input.setAttribute('aria-invalid', 'true');
